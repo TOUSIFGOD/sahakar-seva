@@ -14,4 +14,6 @@ Thumbs.db
 # IDE and Editor files
 .vscode/
 .idea/
+.antigravity-ide/
+.gemini/
 *.swp
