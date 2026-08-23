@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sahakar Seva | Cooperative Gig Services Platform</title>
-  <meta name="description" content="Ministry of Cooperation - Cooperative Gig Services Platform for Household & Community Services with 95% direct worker payout and e-Shram integration.">
+  <meta name="description"
+    content="Ministry of Cooperation - Cooperative Gig Services Platform for Household & Community Services with 95% direct worker payout and e-Shram integration.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Leaflet.js Maps CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- TOP HEADER -->
@@ -39,7 +45,8 @@
       <div class="top-controls">
         <!-- Interactive Demo Persona Switcher -->
         <div class="role-switcher-container">
-          <label for="personaSelect"><i class="fa-solid fa-user-circle"></i> <span id="txt-role-lbl">Active Persona:</span></label>
+          <label for="personaSelect"><i class="fa-solid fa-user-circle"></i> <span id="txt-role-lbl">Active
+              Persona:</span></label>
           <select id="personaSelect" class="role-select" onchange="switchPersona(this.value)">
             <option value="usr_cust_1">👤 Customer: Ananya Sharma (Citizen)</option>
             <option value="usr_wrk_1">⚡ Worker: Ramesh Kumar (Electrician)</option>
@@ -85,7 +92,8 @@
       <div>
         <h1 class="hero-title" id="txt-hero-title">Empowering Local Hands, Strengthening Cooperatives</h1>
         <p class="hero-subtitle" id="txt-hero-subtitle">
-          Book verified cooperative professionals for household & community services. 95% of fees go directly to worker earnings with zero private equity extraction.
+          Book verified cooperative professionals for household & community services. 95% of fees go directly to worker
+          earnings with zero private equity extraction.
         </p>
       </div>
 
@@ -130,7 +138,7 @@
     <!-- PORTAL VIEW 1: CUSTOMER VIEW -->
     <!-- ============================================== -->
     <div id="viewCustomer" class="portal-view active">
-      
+
       <!-- Search & Category Filters -->
       <div class="app-card">
         <div class="card-header-flex">
@@ -138,13 +146,15 @@
             <i class="fa-solid fa-sparkles"></i> <span id="txt-categories-title">Service Categories</span>
           </h2>
           <div style="font-size: 0.85rem; color: var(--text-muted);">
-            <i class="fa-solid fa-location-dot text-emerald-600"></i> Cluster: <strong>Bhopal Metro & Arera Zone</strong>
+            <i class="fa-solid fa-location-dot text-emerald-600"></i> Cluster: <strong>Bhopal Metro & Arera
+              Zone</strong>
           </div>
         </div>
 
         <div class="search-box-wrap">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="serviceSearchInput" class="search-input" placeholder="Search electricians, plumbers, elder care..." oninput="handleSearch(this.value)">
+          <input type="text" id="serviceSearchInput" class="search-input"
+            placeholder="Search electricians, plumbers, elder care..." oninput="handleSearch(this.value)">
         </div>
 
         <div class="category-pills-bar" id="categoryPillsContainer">
@@ -180,14 +190,17 @@
 
       <!-- Customer Layout: 2 Columns (Workers List + Live Map & Active Bookings) -->
       <div class="customer-layout-grid">
-        
+
         <!-- Left: Verified Workers List -->
         <div>
           <div class="card-header-flex">
             <h3 class="card-title">
-              <i class="fa-solid fa-user-check"></i> <span id="txt-workers-near">Verified Cooperative Workers Near You</span>
+              <i class="fa-solid fa-user-check"></i> <span id="txt-workers-near">Verified Cooperative Workers Near
+                You</span>
             </h3>
-            <span id="workerCountBadge" style="font-size: 0.8rem; background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700;">8 Workers</span>
+            <span id="workerCountBadge"
+              style="font-size: 0.8rem; background: #e2e8f0; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700;">8
+              Workers</span>
           </div>
 
           <div class="worker-cards-grid" id="workersListContainer">
@@ -200,16 +213,18 @@
           <div class="app-card">
             <div class="card-header-flex">
               <h3 class="card-title" style="font-size: 1.05rem;">
-                <i class="fa-solid fa-map-location-dot"></i> <span id="txt-map-title">Live Proximity Map (Bhopal Cluster)</span>
+                <i class="fa-solid fa-map-location-dot"></i> <span id="txt-map-title">Live Proximity Map (Bhopal
+                  Cluster)</span>
               </h3>
               <span style="font-size: 0.75rem; color: var(--primary); font-weight: 600;">
                 <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> Live GPS Proximity
               </span>
             </div>
-            
+
             <div id="workerMap"></div>
             <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">
-              <i class="fa-solid fa-circle-info"></i> Markers show verified cooperative workers stationed across Bhopal zones for rapid 45-min arrival.
+              <i class="fa-solid fa-circle-info"></i> Markers show verified cooperative workers stationed across Bhopal
+              zones for rapid 45-min arrival.
             </p>
           </div>
 
@@ -217,7 +232,8 @@
           <div class="app-card">
             <div class="card-header-flex">
               <h3 class="card-title" style="font-size: 1.05rem;">
-                <i class="fa-solid fa-clock-rotate-left"></i> <span id="txt-active-bookings">Your Active Service Bookings</span>
+                <i class="fa-solid fa-clock-rotate-left"></i> <span id="txt-active-bookings">Your Active Service
+                  Bookings</span>
               </h3>
             </div>
             <div id="activeBookingsContainer">
@@ -233,11 +249,12 @@
     <!-- PORTAL VIEW 2: WORKER VIEW (Ramesh Kumar) -->
     <!-- ============================================== -->
     <div id="viewWorker" class="portal-view">
-      
+
       <!-- Worker Hero Profile Card -->
       <div class="worker-hero-profile">
         <div class="worker-profile-left">
-          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80" alt="Ramesh Kumar" class="worker-portal-avatar">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80"
+            alt="Ramesh Kumar" class="worker-portal-avatar">
           <div>
             <div style="display: flex; align-items: center; gap: 0.5rem;">
               <h2 style="font-size: 1.4rem; color: var(--navy); font-weight: 800;">Ramesh Kumar</h2>
@@ -246,7 +263,8 @@
             <p style="color: var(--primary); font-weight: 600; font-size: 0.95rem;">
               Master Certified Electrician | Bhopal Shramik Seva Sahakari Samiti
             </p>
-            <div style="display: flex; gap: 0.6rem; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem; flex-wrap: wrap;">
+            <div
+              style="display: flex; gap: 0.6rem; font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem; flex-wrap: wrap;">
               <span><i class="fa-solid fa-id-card"></i> UAN-8842-1940-2291</span>
               <span><i class="fa-solid fa-certificate"></i> NSQF-L4-ELE-8921</span>
               <span><i class="fa-solid fa-shield-heart text-blue-600"></i> PMJJBY & PMSBY Active</span>
@@ -272,11 +290,12 @@
           <h3 class="card-title">
             <i class="fa-solid fa-bolt text-amber-500"></i> Active Assigned Gigs & Tasks
           </h3>
-          <span style="font-size: 0.8rem; background: var(--saffron-light); color: var(--saffron); padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700;">
+          <span
+            style="font-size: 0.8rem; background: var(--saffron-light); color: var(--saffron); padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700;">
             1 Live Job
           </span>
         </div>
-        
+
         <div id="workerGigsContainer">
           <!-- Dynamically populated worker assigned tasks -->
         </div>
@@ -286,7 +305,8 @@
       <div class="app-card">
         <div class="card-header-flex">
           <h3 class="card-title">
-            <i class="fa-solid fa-scale-balanced text-emerald-600"></i> <span id="txt-earnings-ledger">Transparent 95% Earnings Ledger</span>
+            <i class="fa-solid fa-scale-balanced text-emerald-600"></i> <span id="txt-earnings-ledger">Transparent 95%
+              Earnings Ledger</span>
           </h3>
           <span style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">
             Zero Middleman Markup
@@ -294,7 +314,8 @@
         </div>
 
         <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-          Under the Sahakar Seva Cooperative Bylaws, every rupee earned belongs to the worker. A minimal 5% goes directly into your society's health and tool fund.
+          Under the Sahakar Seva Cooperative Bylaws, every rupee earned belongs to the worker. A minimal 5% goes
+          directly into your society's health and tool fund.
         </p>
 
         <div class="ledger-comparison-box">
@@ -345,10 +366,12 @@
           </div>
         </div>
 
-        <div style="margin-top: 1.25rem; background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+        <div
+          style="margin-top: 1.25rem; background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
           <div>
             <div style="font-size: 0.8rem; color: var(--text-muted);">Total Lifetime Earnings Disbursed</div>
-            <div style="font-size: 1.5rem; font-weight: 800; color: var(--navy);" id="workerLifetimeEarnings">₹98,450.00</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--navy);" id="workerLifetimeEarnings">₹98,450.00
+            </div>
           </div>
           <div>
             <div style="font-size: 0.8rem; color: var(--text-muted);">Cooperative Dividend Share</div>
@@ -366,7 +389,7 @@
     <!-- PORTAL VIEW 3: COOPERATIVE ADMIN DASHBOARD -->
     <!-- ============================================== -->
     <div id="viewAdmin" class="portal-view">
-      
+
       <!-- Admin 3 Sub-tabs -->
       <div class="admin-tabs-nav">
         <button class="admin-tab active" onclick="switchAdminTab('ops')" id="adminTabOps">
@@ -384,12 +407,13 @@
       <!-- ADMIN SUBVIEW 1: OPERATIONS & GMV -->
       <!-- --------------------------------- -->
       <div id="adminSubOps" class="admin-subview active">
-        
+
         <div class="admin-stats-grid">
           <div class="admin-stat-card highlight">
             <div class="stat-lbl" id="txt-total-gmv">Gross Service Value (GMV)</div>
             <div class="stat-val" id="adminGmvVal">₹1,85,000</div>
-            <div class="stat-foot" style="color: #fde68a;"><i class="fa-solid fa-arrow-trend-up"></i> +24% this month</div>
+            <div class="stat-foot" style="color: #fde68a;"><i class="fa-solid fa-arrow-trend-up"></i> +24% this month
+            </div>
           </div>
           <div class="admin-stat-card">
             <div class="stat-lbl">95% Worker Direct Payouts</div>
@@ -466,7 +490,8 @@
                 Audit e-Shram Universal Account Numbers (UAN), Skill India NSQF credentials, and insurance schemes.
               </p>
             </div>
-            <button class="btn-pitch" onclick="alert('Integration with e-Shram API / Skill India Digital Gateway active.')">
+            <button class="btn-pitch"
+              onclick="alert('Integration with e-Shram API / Skill India Digital Gateway active.')">
               <i class="fa-solid fa-arrows-rotate"></i> Sync e-Shram Portal
             </button>
           </div>
@@ -502,7 +527,8 @@
           <div class="card-header-flex">
             <div>
               <h3 class="card-title">
-                <i class="fa-solid fa-brain text-purple-600"></i> <span id="txt-ai-forecast-title">AI Predictive Workforce Demand (Next 4 Weeks)</span>
+                <i class="fa-solid fa-brain text-purple-600"></i> <span id="txt-ai-forecast-title">AI Predictive
+                  Workforce Demand (Next 4 Weeks)</span>
               </h3>
               <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.2rem;">
                 Trained on historical seasonal weather trends, festival calendars, and local society booking patterns.
@@ -519,7 +545,8 @@
 
           <div class="card-header-flex">
             <h4 class="card-title" style="font-size: 1.1rem;">
-              <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> <span id="txt-ai-alert-title">Proactive Cooperative Mobilization Alerts</span>
+              <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> <span id="txt-ai-alert-title">Proactive
+                Cooperative Mobilization Alerts</span>
             </h4>
           </div>
 
@@ -543,7 +570,8 @@
         <button class="btn-close-modal" onclick="closeModal('bookingModal')">&times;</button>
       </div>
       <div class="modal-body">
-        <div id="bookingWorkerSummary" style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: center;">
+        <div id="bookingWorkerSummary"
+          style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.25rem; display: flex; gap: 1rem; align-items: center;">
           <!-- Injected via JS -->
         </div>
 
@@ -555,15 +583,18 @@
 
           <div class="form-group">
             <label>Your Service Address (Bhopal)</label>
-            <input type="text" id="bookAddressInput" class="form-control" value="Flat 402, Arera Colony, Bhopal, MP" required>
+            <input type="text" id="bookAddressInput" class="form-control" value="Flat 402, Arera Colony, Bhopal, MP"
+              required>
           </div>
 
           <div class="form-group">
             <label>Special Instructions / Problem Description</label>
-            <textarea id="bookNotesInput" class="form-control" rows="2" placeholder="e.g. Master bedroom switchboard spark, check MCB line"></textarea>
+            <textarea id="bookNotesInput" class="form-control" rows="2"
+              placeholder="e.g. Master bedroom switchboard spark, check MCB line"></textarea>
           </div>
 
-          <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 0.9rem; margin: 1rem 0;">
+          <div
+            style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 0.9rem; margin: 1rem 0;">
             <div style="font-weight: 700; color: #065f46; font-size: 0.9rem; margin-bottom: 0.4rem;">
               <i class="fa-solid fa-shield-check"></i> Cooperative Fair Pricing Guarantee
             </div>
@@ -575,7 +606,8 @@
               <span>Coop Welfare Fund (5%):</span>
               <strong id="modalCoopShare">₹17.50</strong>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 800; color: var(--navy); border-top: 1px dashed #a7f3d0; margin-top: 0.5rem; padding-top: 0.4rem;">
+            <div
+              style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 800; color: var(--navy); border-top: 1px dashed #a7f3d0; margin-top: 0.5rem; padding-top: 0.4rem;">
               <span>Total Payable Amount:</span>
               <span id="modalTotalAmount">₹350.00</span>
             </div>
@@ -603,15 +635,18 @@
       </div>
       <div class="modal-body" style="text-align: center;">
         <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-          <span style="font-weight: 700; font-size: 0.9rem; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.8rem; border-radius: 20px;">
+          <span
+            style="font-weight: 700; font-size: 0.9rem; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.8rem; border-radius: 20px;">
             <i class="fa-brands fa-google-pay"></i> GPay / PhonePe / BHIM
           </span>
-          <span style="font-weight: 700; font-size: 0.9rem; background: #dcfce7; color: #15803d; padding: 0.3rem 0.8rem; border-radius: 20px;">
+          <span
+            style="font-weight: 700; font-size: 0.9rem; background: #dcfce7; color: #15803d; padding: 0.3rem 0.8rem; border-radius: 20px;">
             <i class="fa-solid fa-bolt"></i> Zero MDR Fee
           </span>
         </div>
 
-        <h2 style="font-size: 2rem; font-weight: 800; color: var(--navy); margin: 0.5rem 0;" id="payModalAmount">₹350.00</h2>
+        <h2 style="font-size: 2rem; font-weight: 800; color: var(--navy); margin: 0.5rem 0;" id="payModalAmount">₹350.00
+        </h2>
         <p style="font-size: 0.85rem; color: var(--text-muted);">
           Payment Destination: <strong>Bhopal Shramik Seva Sahakari Samiti</strong>
         </p>
@@ -628,7 +663,8 @@
           <i class="fa-solid fa-check-double"></i> 95% will be transferred to worker upon digital signature.
         </div>
 
-        <button class="btn-book" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 1rem;" onclick="confirmSandboxPayment()">
+        <button class="btn-book" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 1rem;"
+          onclick="confirmSandboxPayment()">
           <i class="fa-solid fa-lock"></i> Authorize Payment (Test Sandbox)
         </button>
       </div>
@@ -645,12 +681,15 @@
         <button class="btn-close-modal" onclick="closeModal('invoiceModal')">&times;</button>
       </div>
       <div class="modal-body" id="invoicePrintArea">
-        <div style="border: 2px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; background: #fff;">
-          
-          <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #064e3b; padding-bottom: 1rem; margin-bottom: 1rem;">
+        <div
+          style="border: 2px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; background: #fff;">
+
+          <div
+            style="display: flex; justify-content: space-between; border-bottom: 2px solid #064e3b; padding-bottom: 1rem; margin-bottom: 1rem;">
             <div>
               <h2 style="color: #064e3b; font-weight: 800; font-size: 1.3rem;">SAHAKAR SEVA</h2>
-              <p style="font-size: 0.75rem; color: var(--text-muted);">Cooperative Gig Services Platform | Govt of India</p>
+              <p style="font-size: 0.75rem; color: var(--text-muted);">Cooperative Gig Services Platform | Govt of India
+              </p>
               <p style="font-size: 0.75rem; color: var(--text-muted);">Society Reg: MP-BPL-2018-8472</p>
             </div>
             <div style="text-align: right;">
@@ -660,7 +699,8 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85rem; margin-bottom: 1rem;">
+          <div
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.85rem; margin-bottom: 1rem;">
             <div>
               <strong style="color: var(--navy);">Billed To:</strong>
               <div id="invCustomer">Ananya Sharma</div>
@@ -684,15 +724,18 @@
               <tr style="border-bottom: 1px solid var(--border);">
                 <td style="padding: 0.6rem 0.5rem;">
                   <strong id="invServiceTitle">Master Electrician & Wiring</strong>
-                  <div style="font-size: 0.75rem; color: var(--text-muted);">Diagnostics, short-circuit troubleshooting</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Diagnostics, short-circuit troubleshooting
+                  </div>
                 </td>
                 <td style="padding: 0.6rem 0.5rem; text-align: right;" id="invGrossAmount">₹500.00</td>
               </tr>
             </tbody>
           </table>
 
-          <div style="background: #f8fafc; border-radius: 8px; padding: 0.85rem; font-size: 0.8rem; margin-bottom: 1rem;">
-            <div style="font-weight: 700; color: var(--navy); margin-bottom: 0.3rem;">Transparent Cooperative Split:</div>
+          <div
+            style="background: #f8fafc; border-radius: 8px; padding: 0.85rem; font-size: 0.8rem; margin-bottom: 1rem;">
+            <div style="font-weight: 700; color: var(--navy); margin-bottom: 0.3rem;">Transparent Cooperative Split:
+            </div>
             <div style="display: flex; justify-content: space-between; color: var(--primary-dark);">
               <span>Direct Worker Payout (95%):</span>
               <strong id="invWorkerShare">₹475.00</strong>
@@ -703,8 +746,10 @@
             </div>
           </div>
 
-          <div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.75rem;">
-            <i class="fa-solid fa-shield-halved text-emerald-600"></i> Digitally signed by Bhopal Shramik Seva Sahakari Samiti. Insured under PMJJBY & PMSBY.
+          <div
+            style="text-align: center; font-size: 0.75rem; color: var(--text-muted); border-top: 1px dashed var(--border); padding-top: 0.75rem;">
+            <i class="fa-solid fa-shield-halved text-emerald-600"></i> Digitally signed by Bhopal Shramik Seva Sahakari
+            Samiti. Insured under PMJJBY & PMSBY.
           </div>
 
         </div>
@@ -732,7 +777,9 @@
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">
             How was your experience with <strong id="rateWorkerName">Ramesh Kumar</strong>?
           </p>
-          <div style="font-size: 2rem; color: #f59e0b; cursor: pointer; display: flex; justify-content: center; gap: 0.5rem;" id="starRatingRow">
+          <div
+            style="font-size: 2rem; color: #f59e0b; cursor: pointer; display: flex; justify-content: center; gap: 0.5rem;"
+            id="starRatingRow">
             <i class="fa-solid fa-star" onclick="setStarRating(1)"></i>
             <i class="fa-solid fa-star" onclick="setStarRating(2)"></i>
             <i class="fa-solid fa-star" onclick="setStarRating(3)"></i>
@@ -743,7 +790,8 @@
 
         <div class="form-group">
           <label>Your Feedback / Review</label>
-          <textarea id="rateReviewText" class="form-control" rows="3" placeholder="Share your experience to help the cooperative community..."></textarea>
+          <textarea id="rateReviewText" class="form-control" rows="3"
+            placeholder="Share your experience to help the cooperative community..."></textarea>
         </div>
 
         <div class="modal-footer" style="padding-right: 0; padding-bottom: 0;">
@@ -762,17 +810,20 @@
   <div class="modal-overlay" id="pitchModal">
     <div class="modal-card" style="max-width: 800px;">
       <div class="modal-header" style="background: var(--navy); color: #fff;">
-        <h3 style="color: #fff;"><i class="fa-solid fa-award text-amber-400"></i> SIH 2026 — Sahakar Seva Strategic Pitch</h3>
+        <h3 style="color: #fff;"><i class="fa-solid fa-award text-amber-400"></i> SIH 2026 — Sahakar Seva Strategic
+          Pitch</h3>
         <button class="btn-close-modal" style="color: #fff;" onclick="closeModal('pitchModal')">&times;</button>
       </div>
       <div class="modal-body">
-        
-        <div style="background: #ecfdf5; border-left: 4px solid var(--primary); padding: 1rem; border-radius: 8px; margin-bottom: 1.25rem;">
+
+        <div
+          style="background: #ecfdf5; border-left: 4px solid var(--primary); padding: 1rem; border-radius: 8px; margin-bottom: 1.25rem;">
           <h4 style="color: var(--primary-dark); font-weight: 800; margin-bottom: 0.3rem;">
             Problem Statement Alignment: Smart Automation for Cooperative Gig Services
           </h4>
           <p style="font-size: 0.85rem; color: #064e3b; line-height: 1.4;">
-            Transforming unorganized household labour into a digitized, dignified cooperative federation workforce with 95% earnings retention and e-Shram trust architecture.
+            Transforming unorganized household labour into a digitized, dignified cooperative federation workforce with
+            95% earnings retention and e-Shram trust architecture.
           </p>
         </div>
 
@@ -845,9 +896,12 @@
         <h4 style="font-weight: 800; color: var(--navy); margin-bottom: 0.5rem;">The 5 Core USPs for SIH Jury</h4>
         <ol style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
           <li><strong>Profit Stays With Workers:</strong> 95% direct immediate payout + 5% welfare fund.</li>
-          <li><strong>Government-Linked Credibility:</strong> Instant verification with e-Shram UAN and Skill India NSQF.</li>
-          <li><strong>Welfare-by-Default:</strong> Institutional tie-in with PMJJBY life and PMSBY accident insurance.</li>
-          <li><strong>AI-Driven Seasonal Planning:</strong> Predictive demand heatmaps to prevent worker underutilization.</li>
+          <li><strong>Government-Linked Credibility:</strong> Instant verification with e-Shram UAN and Skill India
+            NSQF.</li>
+          <li><strong>Welfare-by-Default:</strong> Institutional tie-in with PMJJBY life and PMSBY accident insurance.
+          </li>
+          <li><strong>AI-Driven Seasonal Planning:</strong> Predictive demand heatmaps to prevent worker
+            underutilization.</li>
           <li><strong>Built for Bharat:</strong> Bilingual English/Hindi with Tier-2/3 localized design.</li>
         </ol>
 
@@ -874,7 +928,8 @@
   </footer>
 
   <!-- Leaflet.js Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- Chart.js Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -885,4 +940,5 @@
   <!-- Main Application Logic -->
   <script src="js/app.js"></script>
 </body>
+
 </html>
