@@ -1,0 +1,25 @@
+{
+  "name": "sahakar-seva-mvp",
+  "version": "1.0.0",
+  "description": "Cooperative Gig Services Platform for Household & Community Services - SIH 2026",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "cooperative",
+    "gig-economy",
+    "sih2026",
+    "smart-automation",
+    "eshram",
+    "ministry-of-cooperation"
+  ],
+  "author": "Sahakar Seva Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  }
+}
